@@ -96,7 +96,7 @@ namespace Epacsenur
             if (!Holder.Controls.Contains(web))
             {
                 MinimizeFootPrint();
-                
+
                 Holder.Controls.Clear();
 
                 //Cef.Initialize(new CefSettings());
@@ -117,7 +117,7 @@ namespace Epacsenur
             picName.Size = new System.Drawing.Size(Sx, Sy);
             picName.BackgroundImage = image;
             picName.BackgroundImageLayout = ImageLayout.Stretch;
-            
+
             Holder.Controls.Add(picName);
         }
 
@@ -228,7 +228,7 @@ namespace Epacsenur
             });
         }
 
-        
+
         private void Osrs_wiki_Click(object sender, EventArgs e)
         {
             webAppear(osrsWiki, "https://oldschool.runescape.wiki/");
@@ -284,7 +284,7 @@ namespace Epacsenur
         Bitmap phase2Mage = new Bitmap(Properties.Resources.phase2Mage);
         Bitmap phase2Melee = new Bitmap(Properties.Resources.phase2Melee);
 
-        Bitmap range3 = new Bitmap(Properties.Resources.range3);  
+        Bitmap range3 = new Bitmap(Properties.Resources.range3);
         Bitmap mage3 = new Bitmap(Properties.Resources.mage3);
 
         Bitmap mageB = new Bitmap(Properties.Resources.magicB);
