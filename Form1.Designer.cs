@@ -31,28 +31,30 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Contract = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Minimize = new System.Windows.Forms.NotifyIcon(this.components);
             this.osrs = new System.Windows.Forms.WebBrowser();
             this.Holder = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.reddit = new System.Windows.Forms.PictureBox();
             this.zulrahPlugin = new System.Windows.Forms.PictureBox();
             this.Merch = new System.Windows.Forms.PictureBox();
             this.osrs_wiki = new System.Windows.Forms.PictureBox();
+            this.Contract = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.Holder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reddit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zulrahPlugin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Merch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.osrs_wiki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Contract)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.Holder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zulrahPlugin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Merch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.osrs_wiki)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,17 +73,6 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
             // 
-            // Contract
-            // 
-            this.Contract.BackgroundImage = global::Epacsenur.Properties.Resources.Left;
-            this.Contract.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Contract.Location = new System.Drawing.Point(1335, 3);
-            this.Contract.Name = "Contract";
-            this.Contract.Size = new System.Drawing.Size(16, 22);
-            this.Contract.TabIndex = 3;
-            this.Contract.TabStop = false;
-            this.Contract.Click += new System.EventHandler(this.Contract_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -92,38 +83,6 @@
             this.label1.Size = new System.Drawing.Size(70, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Epacsenur";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::Epacsenur.Properties.Resources.Logo_png;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(28, 27);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::Epacsenur.Properties.Resources.dash;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(1357, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(23, 24);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::Epacsenur.Properties.Resources.x;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(1383, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(23, 24);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // Minimize
             // 
@@ -173,6 +132,19 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "About";
             // 
+            // reddit
+            // 
+            this.reddit.BackgroundImage = global::Epacsenur.Properties.Resources.Reddit_Logo;
+            this.reddit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.reddit.Location = new System.Drawing.Point(1382, 129);
+            this.reddit.Name = "reddit";
+            this.reddit.Size = new System.Drawing.Size(20, 20);
+            this.reddit.TabIndex = 2;
+            this.reddit.TabStop = false;
+            this.reddit.Click += new System.EventHandler(this.Reddit_Click);
+            this.reddit.MouseEnter += new System.EventHandler(this.Reddit_MouseEnter);
+            this.reddit.MouseLeave += new System.EventHandler(this.Reddit_MouseLeave);
+            // 
             // zulrahPlugin
             // 
             this.zulrahPlugin.BackgroundImage = global::Epacsenur.Properties.Resources.Serpentine_helm;
@@ -212,12 +184,56 @@
             this.osrs_wiki.MouseEnter += new System.EventHandler(this.Osrs_wiki_MouseEnter);
             this.osrs_wiki.MouseLeave += new System.EventHandler(this.Osrs_wiki_MouseLeave);
             // 
+            // Contract
+            // 
+            this.Contract.BackgroundImage = global::Epacsenur.Properties.Resources.Left;
+            this.Contract.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Contract.Location = new System.Drawing.Point(1335, 3);
+            this.Contract.Name = "Contract";
+            this.Contract.Size = new System.Drawing.Size(16, 22);
+            this.Contract.TabIndex = 3;
+            this.Contract.TabStop = false;
+            this.Contract.Click += new System.EventHandler(this.Contract_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Epacsenur.Properties.Resources.Logo_png;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(28, 27);
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::Epacsenur.Properties.Resources.dash;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(1357, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(23, 24);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Epacsenur.Properties.Resources.x;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(1383, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(23, 24);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(81)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(1405, 577);
+            this.Controls.Add(this.reddit);
             this.Controls.Add(this.zulrahPlugin);
             this.Controls.Add(this.Merch);
             this.Controls.Add(this.osrs_wiki);
@@ -232,15 +248,16 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.Holder.ResumeLayout(false);
+            this.Holder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reddit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zulrahPlugin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Merch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.osrs_wiki)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Contract)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.Holder.ResumeLayout(false);
-            this.Holder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zulrahPlugin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Merch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.osrs_wiki)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -261,5 +278,6 @@
         private System.Windows.Forms.PictureBox osrs_wiki;
         private System.Windows.Forms.PictureBox Merch;
         private System.Windows.Forms.PictureBox zulrahPlugin;
+        private System.Windows.Forms.PictureBox reddit;
     }
 }

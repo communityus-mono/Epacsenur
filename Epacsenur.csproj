@@ -128,6 +128,7 @@
   <ItemGroup>
     <None Include="Images\Zulrah\Zulrah_Key.png" />
     <None Include="Images\Misc\dash.png" />
+    <None Include="Images\Buttons\Reddit_Logo.png" />
     <Content Include="Images\Misc\Logo_png.png" />
     <None Include="Images\Buttons\Left.png" />
     <None Include="Images\Buttons\Right.png" />

@@ -27,6 +27,7 @@ namespace Epacsenur
 
         //all the web broswers created
         WebBrowser osrsWiki = new WebBrowser();
+        WebBrowser redditBrowser = new WebBrowser();
 
         public ChromiumWebBrowser merchPlat;
 
@@ -374,6 +375,22 @@ namespace Epacsenur
         {
             Holder.Controls.Clear();
             makePicturebox(rangePhase, 0, 0, 573, 161, range3);
+        }
+
+        private void Reddit_MouseEnter(object sender, EventArgs e)
+        {
+            Max(reddit);
+        }
+
+        private void Reddit_MouseLeave(object sender, EventArgs e)
+        {
+            Min(reddit);
+        }
+
+        private void Reddit_Click(object sender, EventArgs e)
+        {
+            MinimizeFootPrint();
+            webAppear(redditBrowser, "https://www.reddit.com/r/2007scape/");
         }
     }
 }
