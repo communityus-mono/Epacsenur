@@ -277,8 +277,10 @@ namespace Epacsenur
         PictureBox magicB;
         PictureBox R1;
         PictureBox R2;
+        PictureBox zulKeyFrame;
 
         Bitmap zulStartPic = new Bitmap(Properties.Resources.phase1);
+        Bitmap zulKey = new Bitmap(Properties.Resources.Zulrah_Key);
 
         Bitmap phase2Range = new Bitmap(Properties.Resources.phase2Range);
         Bitmap phase2Mage = new Bitmap(Properties.Resources.phase2Mage);
@@ -298,10 +300,7 @@ namespace Epacsenur
             Holder.Controls.Clear();
             MinimizeFootPrint();
 
-            Holder.Controls.Add(zulrahKey);
-
-            zulrahKey.Visible = true;
-
+            makePicturebox(zulKeyFrame, 0, 0, 400, 80, zulKey);
             makePicturebox(zulStart, 62, 190, 112, 112, zulStartPic);
 
             PictureBox range2 = new PictureBox();
