@@ -53,6 +53,7 @@ namespace Epacsenur
             this.Merch = new System.Windows.Forms.PictureBox();
             this.osrs_wiki = new System.Windows.Forms.PictureBox();
             this.openChat = new System.Windows.Forms.PictureBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Contract)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -197,6 +198,7 @@ namespace Epacsenur
             // 
             // ircPanel
             // 
+            this.ircPanel.Controls.Add(this.richTextBox1);
             this.ircPanel.Controls.Add(this.setName);
             this.ircPanel.Controls.Add(this.usernameInput);
             this.ircPanel.Controls.Add(this.messagesList);
@@ -326,6 +328,18 @@ namespace Epacsenur
             this.openChat.TabStop = false;
             this.openChat.Click += new System.EventHandler(this.openChat_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.EnableAutoDragDrop = true;
+            this.richTextBox1.Location = new System.Drawing.Point(7, 3);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(1136, 1021);
+            this.richTextBox1.TabIndex = 5;
+            this.richTextBox1.Text = "IRC WORKS BUT THERE IS NO ACTIVE SERVER HOSTING IT. SO CONSIDER IT AS IT IS NOT W" +
+    "ORKING. ";
+            this.richTextBox1.ZoomFactor = 5F;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -392,5 +406,6 @@ namespace Epacsenur
         private System.Windows.Forms.RichTextBox messagesList;
         private System.Windows.Forms.RichTextBox sendmessageBox;
         private System.Windows.Forms.Button sendmessageButton;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
