@@ -23,3 +23,5 @@ The features of Epacsenur are as follows:
 * Winforms
 * Cefsharp
 
+## Community
+[![discord](https://discordapp.com/assets/e4923594e694a21542a489471ecffa50.svg)](https://discord.gg/XM8xrPv)
