@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
-using CefSharp;
 using CefSharp.WinForms;
+using CefSharp;
 using Epacsenur.Features.Client;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using ProxySharp;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Epacsenur
 {
@@ -89,6 +92,8 @@ namespace Epacsenur
                 web.AllowNavigation = true;
                 web.ScriptErrorsSuppressed = true;
                 web.Navigate(url);
+                ircPanel.Visible = false;
+                Holder.Visible = true;
             }
         }
 
@@ -99,6 +104,8 @@ namespace Epacsenur
                 MinimizeFootPrint();
 
                 Holder.Controls.Clear();
+                ircPanel.Visible = false;
+                Holder.Visible = true;
 
                 //Cef.Initialize(new CefSettings());
 
@@ -122,11 +129,43 @@ namespace Epacsenur
             Holder.Controls.Add(picName);
         }
 
+        public void makeRichTextBox(int lX, int lY, int Sx, int Sy)
+        {
+            RichTextBox text;
+            text = new RichTextBox();
+            text.Location = new System.Drawing.Point(lX, lY);
+            text.Size = new System.Drawing.Size(Sx, Sy);
+
+            Holder.Controls.Add(text);
+        }
+
+        public void makeTextBox(int lX, int lY, int Sx, int Sy)
+        {
+            TextBox text;
+            text = new TextBox();
+            text.Location = new System.Drawing.Point(lX, lY);
+            text.Size = new System.Drawing.Size(Sx, Sy);
+
+            Holder.Controls.Add(text);
+        }
+
+        public void makeButton(int lX, int lY, int Sx, int Sy)
+        {
+            Button button;
+            button = new Button();
+            button.Location = new System.Drawing.Point(lX, lY);
+            button.Size = new System.Drawing.Size(Sx, Sy);
+
+            Holder.Controls.Add(button);
+        }
+
         //minimize button
         private void PictureBox2_Click(object sender, EventArgs e)
         {
             Hide();
             Minimize.Visible = true;
+            ircPanel.Visible = false;
+            Holder.Visible = true;
 
         }
 
@@ -233,6 +272,8 @@ namespace Epacsenur
         private void Osrs_wiki_Click(object sender, EventArgs e)
         {
             webAppear(osrsWiki, "https://oldschool.runescape.wiki/");
+            ircPanel.Visible = false;
+            Holder.Visible = true;
         }
         //hover animation start for wiki
         private void Osrs_wiki_MouseEnter(object sender, EventArgs e)
@@ -260,6 +301,8 @@ namespace Epacsenur
         private void Merch_Click(object sender, EventArgs e)
         {
             webAppearC(merchPlat, "https://platinumtokens.com/");
+            ircPanel.Visible = false;
+            Holder.Visible = true;
         }
 
         private void ZulrahPlugin_MouseEnter(object sender, EventArgs e)
@@ -272,13 +315,13 @@ namespace Epacsenur
             Min(zulrahPlugin);
         }
 
-        PictureBox zulStart;
-        PictureBox rangePhase;
-        PictureBox magicPhase;
-        PictureBox magicB;
-        PictureBox R1;
-        PictureBox R2;
-        PictureBox zulKeyFrame;
+        private static PictureBox zulStart = new PictureBox();
+        private static PictureBox rangePhase = new PictureBox();
+        private static PictureBox magicPhase = new PictureBox();
+        private static PictureBox magicB = new PictureBox();
+        private static PictureBox R1 = new PictureBox();
+        private static PictureBox R2 = new PictureBox();
+        private static PictureBox zulKeyFrame = new PictureBox();
 
         Bitmap zulStartPic = new Bitmap(Properties.Resources.phase1);
         Bitmap zulKey = new Bitmap(Properties.Resources.Zulrah_Key);
@@ -327,7 +370,8 @@ namespace Epacsenur
             melee2.BackgroundImageLayout = ImageLayout.Stretch;
             melee2.Click += melee2_Click;
             Holder.Controls.Add(melee2);
-
+            ircPanel.Visible = false;
+            Holder.Visible = true;
 
         }
 
@@ -351,30 +395,40 @@ namespace Epacsenur
             range2.BackgroundImageLayout = ImageLayout.Stretch;
             range2.Click += range2R_Click;
             Holder.Controls.Add(range2);
+            ircPanel.Visible = false;
+            Holder.Visible = true;
         }
 
         private void range2R_Click(object sender, EventArgs e)
         {
             Holder.Controls.Clear();
             makePicturebox(R2, 0, 0, 573, 80, R2B);
+            ircPanel.Visible = false;
+            Holder.Visible = true;
         }
 
         private void range1_Click(object sender, EventArgs e)
         {
             Holder.Controls.Clear();
             makePicturebox(R1, 0, 0, 573, 161, R1B);
+            ircPanel.Visible = false;
+            Holder.Visible = true;
         }
 
         private void mage2_Click(object sender, EventArgs e)
         {
             Holder.Controls.Clear();
             makePicturebox(rangePhase, 0, 0, 573, 161, mage3);
+            ircPanel.Visible = false;
+            Holder.Visible = true;
         }
 
         private void range2_Click(object sender, EventArgs e)
         {
             Holder.Controls.Clear();
             makePicturebox(rangePhase, 0, 0, 573, 161, range3);
+            ircPanel.Visible = false;
+            Holder.Visible = true;
         }
 
         private void Reddit_MouseEnter(object sender, EventArgs e)
@@ -391,6 +445,73 @@ namespace Epacsenur
         {
             MinimizeFootPrint();
             webAppear(redditBrowser, "https://www.reddit.com/r/2007scape/");
+        }
+
+        System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();
+        NetworkStream serverStream = default(NetworkStream);
+        string readData = null;
+
+        /* Button that opens IRC Chat */
+        public void openChat_Click(object sender, EventArgs e)
+        {
+            var proxyServer = Proxy.GetSingleProxy();
+
+            var post = new WebProxy(proxyServer);
+
+            Holder.Controls.Clear();
+
+            ircPanel.Visible = true;
+            Holder.Visible = false;
+
+        }
+        /* Sets your name in the IRC and connects you */
+        /* ToDo: Prevent the client from crashing if already connected; Have a set permanent name; */
+        private void setName_Click(object sender, EventArgs e)
+        {
+            readData = "Conected to Chat Server ...";
+            msg();
+            clientSocket.Connect("", 25565);
+            serverStream = clientSocket.GetStream();
+
+            byte[] outStream = System.Text.Encoding.ASCII.GetBytes(usernameInput.Text + "$");
+            serverStream.Write(outStream, 0, outStream.Length);
+            serverStream.Flush();
+
+            Thread ctThread = new Thread(getMessage);
+            ctThread.Start();
+        }
+
+        /*Sends message to the "messagesList" RichTextBox. Gets the message from "sendmessageBox" */
+        private void sendmessageButton_Click(object sender, EventArgs e)
+        {
+            byte[] outStream = System.Text.Encoding.ASCII.GetBytes(sendmessageBox.Text + "$");
+            serverStream.Write(outStream, 0, outStream.Length);
+            serverStream.Flush();
+
+            sendmessageBox.Clear();
+        }
+
+        private void getMessage()
+        {
+            while (true)
+            {
+                serverStream = clientSocket.GetStream();
+                int buffSize = 0;
+                byte[] inStream = new byte[4096];
+                buffSize = clientSocket.ReceiveBufferSize;
+                int bytesRead = serverStream.Read(inStream, 0, inStream.Length);
+                string returndata = Encoding.ASCII.GetString(inStream, 0, bytesRead);
+                readData = "" + returndata;
+                msg();
+            }
+        }
+
+        private void msg()
+        {
+            if (this.InvokeRequired)
+                this.Invoke(new MethodInvoker(msg));
+            else
+                messagesList.Text = messagesList.Text + Environment.NewLine + " >> " + readData;
         }
     }
 }
